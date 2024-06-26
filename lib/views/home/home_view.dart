@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:tasky/views/home/widgets/fab.dart';
+import 'package:tasky/views/home/widgets/home_view_body.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -11,6 +13,7 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
+    TextTheme textTheme = Theme.of(context).textTheme;
     return Scaffold(
       backgroundColor: Colors.white,
 
@@ -18,30 +21,7 @@ class _HomeViewState extends State<HomeView> {
       floatingActionButton: const Fab(),
 
       /// Body
-      body: SizedBox(
-        height: double.infinity,
-        width: double.infinity,
-        child: Column(
-          children: [
-            Container(
-              margin: const EdgeInsets.only(top: 60),
-              height: 100,
-              width: double.infinity,
-              color: Colors.red,
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    width: 30,
-                    height: 30,
-                    child: CircularProgressIndicator(),
-                  ),
-                ],
-              ),
-            )
-          ],
-        ),
-      ),
+      body: HomeViewBody(textTheme: textTheme),
     );
   }
 }
