@@ -60,7 +60,7 @@ class HomeViewBody extends StatelessWidget {
             ),
           ),
 
-          /// **************Divider*********************
+          /// ************** Divider *********************
           const Padding(
             padding: EdgeInsets.only(top: 10),
             child: Divider(
@@ -73,7 +73,30 @@ class HomeViewBody extends StatelessWidget {
               itemCount: 20,
               scrollDirection: Axis.vertical,
               itemBuilder: (context, index) {
-                return const TaskWidget();
+                return Dismissible(
+                    // * New Widget I learned
+                    direction: DismissDirection.horizontal,
+                    onDismissed: (_) {},
+                    background: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(
+                          Icons.delete,
+                          color: Colors.grey,
+                        ),
+                        8.w,
+                        const Text(
+                          AppStr.deletedTask,
+                          style: TextStyle(
+                            color: Colors.grey,
+                          ),
+                        )
+                      ],
+                    ),
+                    key: Key(
+                      index.toString(),
+                    ),
+                    child: const TaskWidget());
               },
             ),
           ),
