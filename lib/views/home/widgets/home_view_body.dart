@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tasky/extensions/space_exs.dart';
 import 'package:tasky/utils/app_colors.dart';
 import 'package:tasky/utils/app_str.dart';
-import 'package:tasky/views/home/widgets/task.dart';
+import 'package:tasky/views/home/widgets/task_widget.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({
