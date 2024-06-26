@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tasky/extensions/space_exs.dart';
 import 'package:tasky/utils/app_colors.dart';
 import 'package:tasky/utils/app_str.dart';
+import 'package:lottie/lottie.dart';
 import 'package:tasky/views/home/widgets/task_widget.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -14,6 +15,7 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<int> testing = [1, 2];
     return SizedBox(
       height: double.infinity,
       width: double.infinity,
@@ -69,37 +71,40 @@ class HomeViewBody extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: ListView.builder(
-              itemCount: 20,
-              scrollDirection: Axis.vertical,
-              itemBuilder: (context, index) {
-                return Dismissible(
-                    // * New Widget I learned
-                    direction: DismissDirection.horizontal,
-                    onDismissed: (_) {},
-                    background: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Icon(
-                          Icons.delete,
-                          color: Colors.grey,
-                        ),
-                        8.w,
-                        const Text(
-                          AppStr.deletedTask,
-                          style: TextStyle(
-                            color: Colors.grey,
-                          ),
-                        )
-                      ],
-                    ),
-                    key: Key(
-                      index.toString(),
-                    ),
-                    child: const TaskWidget());
-              },
-            ),
-          ),
+              child: testing.isNotEmpty
+                  ? ListView.builder(
+                      itemCount: testing.length,
+                      scrollDirection: Axis.vertical,
+                      itemBuilder: (context, index) {
+                        return Dismissible(
+                            // * New Widget I learned
+                            direction: DismissDirection.horizontal,
+                            onDismissed: (_) {},
+                            background: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Icon(
+                                  Icons.delete,
+                                  color: Colors.grey,
+                                ),
+                                8.w,
+                                const Text(
+                                  AppStr.deletedTask,
+                                  style: TextStyle(
+                                    color: Colors.grey,
+                                  ),
+                                )
+                              ],
+                            ),
+                            key: Key(
+                              index.toString(),
+                            ),
+                            child: const TaskWidget());
+                      },
+                    )
+                  : Column(
+                      children: [Lottie.asset('')],
+                    )),
         ],
       ),
     );
