@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_slider_drawer/flutter_slider_drawer.dart';
 
 import 'package:tasky/views/home/widgets/fab.dart';
 import 'package:tasky/views/home/widgets/home_view_body.dart';
@@ -21,7 +22,12 @@ class _HomeViewState extends State<HomeView> {
       floatingActionButton: const Fab(),
 
       /// Body
-      body: HomeViewBody(textTheme: textTheme),
+      body: SliderDrawer(
+        slider: Container(
+          color: Colors.red,
+        ),
+        child: HomeViewBody(textTheme: textTheme),
+      ),
     );
   }
 }
